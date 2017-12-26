@@ -9,7 +9,7 @@ const Title = styled.h1`
 const HomePage = () => (
   <div>
     <Title>
-      <FormattedMessage id="general.greetings" defaultMessage="hosgelmissiniz" />
+      <FormattedMessage id="general.homepage" defaultMessage="Anasayfa" />
     </Title>
   </div>
 );

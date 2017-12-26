@@ -1,14 +1,10 @@
 export default {
   tr: {
-    'general.greeting': 'SAYIN',
+    'general.homepage': 'Anaysafa',
 
-    'reconciliation.number': 'Mutabakat Numarası',
-    'reconciliation.term': 'Mutabakat Dönemi',
   },
   en: {
-    'general.greeting': 'DEAR',
+    'general.homepage': 'Homepage',
 
-    'reconciliation.number': 'Reconciliation Number',
-    'reconciliation.term': 'Reconciliation Term',
   },
 };
