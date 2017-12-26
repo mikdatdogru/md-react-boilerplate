@@ -1,0 +1,61 @@
+{
+  "name": "e-reconciliation-web",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=8.5.0"
+  },
+  "dependencies": {
+    "bootstrap": "4.0.0-beta.2",
+    "flag-icon-css": "^2.9.0",
+    "history": "^4.7.2",
+    "lodash": "^4.17.4",
+    "moment": "^2.20.1",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-flags": "^0.1.12",
+    "react-intl": "^2.4.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.9",
+    "react-scripts": "1.0.17",
+    "reactstrap": "^5.0.0-alpha.4",
+    "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-thunk": "^2.2.0",
+    "remote-redux-devtools": "^0.5.12",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.77.1",
+    "styled-components": "^2.4.0",
+    "validator": "^9.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.4.0",
+    "eslint-plugin-react": "^7.5.1",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0",
+    "prettier": "^1.9.2",
+    "stylelint": "^8.4.0",
+    "stylelint-config-standard": "^18.0.0",
+    "stylelint-scss": "^2.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start & yarn sass:watch",
+    "build": "react-scripts build",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "sass": "gulp sass",
+    "sass:watch": "gulp sass:watch",
+    "prettier": "prettier --write \"{src/!(assets),src,__tests__}/**/*.js\"",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
