@@ -4,19 +4,10 @@ import * as _ from 'lodash';
 export const x = () => x;
 
 // localstorage belli bir formatta data yazar ve okur
+// localstorage belli bir formatta data yazar ve okur
 export const localStorageData = {
-  agentID: 'user',
-  get: item =>
-    new Promise((resolve, reject) => {
-      if (localStorage.getItem(`${localStorageData.agentID}-${item}`)) {
-        const { data, expiration, creation } = JSON.parse(
-          localStorage.getItem(`${localStorageData.agentID}-${item}`),
-        );
-        resolve({ data, expiration, creation });
-      } else {
-        reject(new Error(`${item} has not found!`));
-      }
-    }),
+  prefix: 'user',
+  get: item => JSON.parse(localStorage.getItem(`${localStorageData.prefix}-${item}`)),
   set: (datas, item) => {
     const allData = {
       data: datas,
@@ -25,11 +16,11 @@ export const localStorageData = {
     };
 
     return new Promise((resolve, reject) => {
-      if (!_.isEmpty(localStorageData.agentID) && !_.isEmpty(item)) {
-        localStorage.setItem(`${localStorageData.agentID}-${item}`, JSON.stringify(allData));
+      if (!_.isEmpty(localStorageData.prefix) && !_.isEmpty(item)) {
+        localStorage.setItem(`${localStorageData.prefix}-${item}`, JSON.stringify(allData));
 
         const { data, expiration, creation } = JSON.parse(
-          localStorage.getItem(`${localStorageData.agentID}-${item}`),
+          localStorage.getItem(`${localStorageData.prefix}-${item}`),
         );
 
         resolve({ status: 'success', item, data: { data, expiration, creation } });
