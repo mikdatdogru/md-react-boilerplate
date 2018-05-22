@@ -1,5 +1,5 @@
 window.env = {
-  apiUrl: 'http://estatement.netbt.us/api',
+  apiUrl: 'https://api.github.com',
   basePath: '',
   env: 'dev',
 };

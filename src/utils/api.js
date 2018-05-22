@@ -6,9 +6,8 @@ export default {
 
   sampleRequest: data =>
     axios({
-      method: 'post',
-      url: `${apiUrl}/sampleRequest`,
-      data,
+      method: 'get',
+      url: `${apiUrl}/users/mikdatdogru`,
     }).then(res => res),
 
  auth: data =>
