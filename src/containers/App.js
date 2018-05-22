@@ -8,7 +8,7 @@ import en from 'react-intl/locale-data/en';
 import { ToastContainer } from 'react-toastify';
 
 import MainLayout from './Layouts/MainLayout';
-import localeData from '../utils/localeStrings';
+import localeData from '../translations';
 
 addLocaleData([...tr, ...en]);
 

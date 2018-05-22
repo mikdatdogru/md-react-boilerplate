@@ -1,18 +1,18 @@
 {
-  "general.helloworld": "Merhaba Dünya !",
+  "general.helloworld": "Hello World !",
 
-  "permissions.admin": "Yönetici",
+  "permissions.admin": "Admin",
 
-  "lang.choice": "Dil seçimi",
+  "lang.choice": "Language Choice",
   "lang.tr": "Türkçe",
   "lang.en": "English",
 
-  "login.pleaseLogin": "Lütfen Giriş Yapın",
-  "login.login": "Giriş Yap",
-  "login.logout": "Çıkış Yap",
-  "login.username": "Kullanıcı Adı",
-  "login.password": "Şifre",
-  "login.forgotPassword": "Şifremi unuttum!",
+  "login.pleaseLogin": "Sign In to your account",
+  "login.login": "Login",
+  "login.logout": "Logout",
+  "login.username": "Username",
+  "login.password": "Password",
+  "login.forgotPassword": "Forgot password?",
 
-  "sidebar.home": "Anasayfa"
+  "sidebar.home": "Home"
 }

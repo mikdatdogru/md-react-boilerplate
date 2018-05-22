@@ -27,7 +27,7 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        <FormattedMessage id="general.homepage" defaultMessage="Anasayfa" />
+        <FormattedMessage id="general.helloworld" defaultMessage="Anasayfa" />
       </div>
     );
   }
