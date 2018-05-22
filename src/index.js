@@ -7,6 +7,8 @@ import { ThemeProvider } from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'semantic-ui-css/semantic.min.css';
 import 'flag-icon-css/css/flag-icon.min.css';
+import 'animate.css/animate.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 import configureStore from './redux/configureStore';
 import theme from './theme';

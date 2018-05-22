@@ -6,7 +6,7 @@ import TopNavigation from '../Layouts/TopNavigation';
 import { store } from '../../index';
 import { setLocale } from '../../actions/common';
 
-import HomePage from '../../containers/Pages/Home';
+import HomePage from '../../pages/Home';
 import { localStorageData } from '../../utils/helper';
 
 class MainLayout extends Component {

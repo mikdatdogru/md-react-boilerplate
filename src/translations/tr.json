@@ -1,0 +1,20 @@
+{
+  "general.helloworld": "Hello World !",
+
+  "permissions.admin": "Admin",
+
+  "lang.choice": "Language Choice",
+  "lang.tr": "Türkçe",
+  "lang.en": "English",
+
+  "login.pleaseLogin": "Sign In to your account",
+  "login.login": "Login",
+  "login.logout": "Logout",
+
+  "login.username": "Username",
+  "login.password": "Password",
+  "login.forgotPassword": "Forgot password?",
+
+  "sidebar.home": "Home"
+}
+  

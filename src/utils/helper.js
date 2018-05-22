@@ -1,9 +1,9 @@
 import moment from 'moment';
 import * as _ from 'lodash';
+// import staticData from '../utils/staticData.json';
 
-export const x = () => x;
 
-// localstorage belli bir formatta data yazar ve okur
+
 // localstorage belli bir formatta data yazar ve okur
 export const localStorageData = {
   prefix: 'user',
@@ -29,4 +29,41 @@ export const localStorageData = {
       }
     });
   },
+  clearExpired: ()=>{
+    // clear expired data
+    Object.keys(localStorage).reduce((total, item) => {
+      let data;
+
+      try {
+        data = JSON.parse(localStorage[item]);
+
+        /*
+         console.log(moment(data.expiration).format());
+         console.log(moment().format());
+
+         */
+
+        if (moment(data.expiration).format() < moment().format()) {
+          localStorage.removeItem(item);
+        }
+      } catch (err) {
+        console.log('localstorage uzerinde gecersiz kayit tespit edildi');
+      }
+      return total;
+    }, []);
+    // clear expired data
+  }
 };
+
+export const prettify = text =>
+  text
+    .replace(/[i|İ]/g, 'i')
+    .replace(/[ı|I]/g, 'i')
+    .replace(/[ş|Ş]/g, 's')
+    .replace(/[ö|Ö]/g, 'o')
+    .replace(/[ü|Ü]/g, 'u')
+    .replace(/[ç|Ç]/g, 'c')
+    .replace(/[ğ|Ğ]/g, 'g')
+    .replace(/\s/gi, '-')
+    .replace(/[-]+/gi, '-')
+    .toLowerCase();

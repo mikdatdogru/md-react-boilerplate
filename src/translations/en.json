@@ -1,0 +1,18 @@
+{
+  "general.helloworld": "Merhaba Dünya !",
+
+  "permissions.admin": "Yönetici",
+
+  "lang.choice": "Dil seçimi",
+  "lang.tr": "Türkçe",
+  "lang.en": "English",
+
+  "login.pleaseLogin": "Lütfen Giriş Yapın",
+  "login.login": "Giriş Yap",
+  "login.logout": "Çıkış Yap",
+  "login.username": "Kullanıcı Adı",
+  "login.password": "Şifre",
+  "login.forgotPassword": "Şifremi unuttum!",
+
+  "sidebar.home": "Anasayfa"
+}
