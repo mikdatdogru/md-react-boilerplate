@@ -42,12 +42,6 @@ export function sampleAction(data) {
         dispatch(sampleFailure(err.response));
 
 
-
-
-
-
-
-
         return err;
       });
   };

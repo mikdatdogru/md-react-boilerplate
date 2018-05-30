@@ -7,24 +7,15 @@ import { store } from '../../index';
 import { setLocale } from '../../actions/common';
 
 import HomePage from '../../pages/Home';
-import { localStorageData } from '../../utils/helper';
+import { detectLang } from '../../utils/helper';
 
 class MainLayout extends Component {
 
   componentWillMount() {
 
-    const language =
-      (navigator.languages && navigator.languages[0]) ||
-      navigator.language ||
-      navigator.userLanguage;
-    const languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
+    const lang = detectLang();
 
-    const lang = localStorageData.get('language');
-    if (lang) {
-      store.dispatch(setLocale(lang.data));
-    } else {
-      store.dispatch(setLocale(languageWithoutRegionCode));
-    }
+    store.dispatch(setLocale(lang));
   }
 
   render() {

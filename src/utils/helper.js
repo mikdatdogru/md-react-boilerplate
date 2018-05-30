@@ -6,30 +6,39 @@ import * as _ from 'lodash';
 
 // localstorage belli bir formatta data yazar ve okur
 export const localStorageData = {
-  prefix: 'user',
+  prefix: 'customer',
   get: item => JSON.parse(localStorage.getItem(`${localStorageData.prefix}-${item}`)),
-  set: (datas, item) => {
+  set: (name, data, expiration) => {
     const allData = {
-      data: datas,
+      data,
       creation: moment(),
-      expiration: moment().add(1, 'month'),
+      expiration: moment.unix(expiration).toISOString() || moment().add(1, 'month'),
     };
 
     return new Promise((resolve, reject) => {
-      if (!_.isEmpty(localStorageData.prefix) && !_.isEmpty(item)) {
-        localStorage.setItem(`${localStorageData.prefix}-${item}`, JSON.stringify(allData));
+      if (!_.isEmpty(localStorageData.prefix) && !_.isEmpty(name)) {
+        localStorage.setItem(`${localStorageData.prefix}-${name}`, JSON.stringify(allData));
 
         const { data, expiration, creation } = JSON.parse(
-          localStorage.getItem(`${localStorageData.prefix}-${item}`),
+          localStorage.getItem(`${localStorageData.prefix}-${name}`),
         );
 
-        resolve({ status: 'success', item, data: { data, expiration, creation } });
+        resolve({ status: 'success', name, data: { data, expiration, creation } });
       } else {
-        reject(new Error(`${item} has not created!`));
+        reject(new Error(`${name} has not created!`));
       }
     });
   },
-  clearExpired: ()=>{
+  delete: item =>
+    new Promise((resolve) => {
+      if (localStorage.getItem(`${localStorageData.prefix}-${item}`)) {
+        localStorage.removeItem(`${localStorageData.prefix}-${item}`);
+        resolve(`${item} has been deleted!`);
+      } else {
+        console.error(`${item} has not found!`);
+      }
+    }),
+  clearExpired: () => {
     // clear expired data
     Object.keys(localStorage).reduce((total, item) => {
       let data;
@@ -52,7 +61,7 @@ export const localStorageData = {
       return total;
     }, []);
     // clear expired data
-  }
+  },
 };
 
 export const prettify = text =>
@@ -67,3 +76,13 @@ export const prettify = text =>
     .replace(/\s/gi, '-')
     .replace(/[-]+/gi, '-')
     .toLowerCase();
+
+
+export const detectLang = () => {
+  const language =
+    (navigator.languages && navigator.languages[0]) || navigator.language || navigator.userLanguage;
+  const languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
+  const lang = localStorageData.get('language');
+  if (lang) return lang.data;
+  return languageWithoutRegionCode;
+};
