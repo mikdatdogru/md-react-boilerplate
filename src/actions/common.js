@@ -2,7 +2,6 @@ import { LOCALE_SET, SAMPLE_FETCH, SAMPLE_RECEIVE, SAMPLE_FAILURE } from './type
 import { localStorageData } from '../utils/helper';
 import api from '../utils/api';
 
-
 export function localeSet(lang) {
   return {
     type: LOCALE_SET,
@@ -11,7 +10,7 @@ export function localeSet(lang) {
 }
 
 export const setLocale = lang => dispatch => {
-  localStorageData.set(lang, 'language');
+  localStorageData.set('language', lang);
   dispatch(localeSet(lang));
 };
 
@@ -40,7 +39,6 @@ export function sampleAction(data) {
       })
       .catch(err => {
         dispatch(sampleFailure(err.response));
-
 
         return err;
       });

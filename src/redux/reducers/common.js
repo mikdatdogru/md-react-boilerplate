@@ -1,9 +1,4 @@
-import {
-  SAMPLE_FETCH,
-  SAMPLE_RECEIVE,
-  SAMPLE_FAILURE,
-
-} from '../../actions/types';
+import { SAMPLE_FETCH, SAMPLE_RECEIVE, SAMPLE_FAILURE } from '../../actions/types';
 
 const initialState = {
   isFetching: false,

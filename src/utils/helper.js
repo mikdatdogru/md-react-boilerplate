@@ -2,12 +2,15 @@ import moment from 'moment';
 import * as _ from 'lodash';
 // import staticData from '../utils/staticData.json';
 
-
-
 // localstorage belli bir formatta data yazar ve okur
 export const localStorageData = {
-  prefix: 'customer',
-  get: item => JSON.parse(localStorage.getItem(`${localStorageData.prefix}-${item}`)),
+  prefix: 'md',
+  get: item => {
+    const localData = JSON.parse(localStorage.getItem(`${localStorageData.prefix}-${item}`));
+
+    if (localData) return localData;
+    return false;
+  },
   set: (name, data, expiration) => {
     const allData = {
       data,
@@ -30,7 +33,7 @@ export const localStorageData = {
     });
   },
   delete: item =>
-    new Promise((resolve) => {
+    new Promise((resolve, reject) => {
       if (localStorage.getItem(`${localStorageData.prefix}-${item}`)) {
         localStorage.removeItem(`${localStorageData.prefix}-${item}`);
         resolve(`${item} has been deleted!`);
@@ -45,12 +48,6 @@ export const localStorageData = {
 
       try {
         data = JSON.parse(localStorage[item]);
-
-        /*
-         console.log(moment(data.expiration).format());
-         console.log(moment().format());
-
-         */
 
         if (moment(data.expiration).format() < moment().format()) {
           localStorage.removeItem(item);
@@ -76,7 +73,6 @@ export const prettify = text =>
     .replace(/\s/gi, '-')
     .replace(/[-]+/gi, '-')
     .toLowerCase();
-
 
 export const detectLang = () => {
   const language =
