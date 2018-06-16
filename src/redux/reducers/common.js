@@ -1,14 +1,19 @@
 import { SAMPLE_FETCH, SAMPLE_RECEIVE, SAMPLE_FAILURE } from '../../actions/types';
-
-const initialState = {
-  isFetching: false,
-  isLoaded: false,
-  isFailure: false,
-};
+import createReducer from '../createReducer';
 
 export const x = () => {};
 
-export const sampleReducer = (state = initialState, action = {}) => {
+// Without using createReducer example:
+/*
+
+export const sampleData = (
+  state = {
+    isFetching: false,
+    isLoaded: false,
+    isFailure: false,
+  },
+  action = {},
+) => {
   switch (action.type) {
     case SAMPLE_FETCH:
       return {
@@ -41,3 +46,9 @@ export const sampleReducer = (state = initialState, action = {}) => {
       return state;
   }
 };
+*/
+
+export const sampleData = createReducer({
+  mapActionToKey: action => action.type,
+  types: [SAMPLE_FETCH, SAMPLE_RECEIVE, SAMPLE_FAILURE],
+});

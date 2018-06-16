@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import swal from 'sweetalert2';
-import { toast } from 'react-toastify';
+// import swal from 'sweetalert2';
+// import { toast } from 'react-toastify';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { sampleAction } from '../../actions/common';
@@ -15,13 +15,15 @@ class HomePage extends Component {
   componentWillMount() {
     this.props.sampleAction();
 
+    /*
     swal({
       title: 'Alert',
       animation: false,
       customClass: 'animated fadeIn',
     });
+    */
 
-    toast.info('Wow so easy!');
+    // toast.info('Wow so easy!');
   }
 
   render() {
@@ -38,7 +40,9 @@ HomePage.propTypes = {
 };
 HomePage.defaultProps = {};
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  sampleData:state.sampleData,
+});
 const mapDispatchToProps = {
   sampleAction,
 };

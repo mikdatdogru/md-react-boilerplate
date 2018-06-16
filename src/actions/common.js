@@ -1,4 +1,5 @@
-import { LOCALE_SET, SAMPLE_FETCH, SAMPLE_RECEIVE, SAMPLE_FAILURE } from './types';
+import { LOCALE_SET, SAMPLE_FETCH, SAMPLE_RECEIVE,
+  SAMPLE_FAILURE } from './types';
 import { localStorageData } from '../utils/helper';
 import api from '../utils/api';
 
@@ -23,6 +24,7 @@ export const sampleReceive = data => ({
   type: SAMPLE_RECEIVE,
   data,
 });
+
 export const sampleFailure = data => ({
   type: SAMPLE_FAILURE,
   data,
@@ -31,6 +33,7 @@ export const sampleFailure = data => ({
 export function sampleAction(data) {
   return dispatch => {
     dispatch(sampleFetch(data));
+
     return api
       .sampleRequest(data)
       .then(res => {
