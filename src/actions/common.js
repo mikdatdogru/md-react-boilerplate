@@ -1,6 +1,7 @@
-import { LOCALE_SET, SAMPLE_FETCH, SAMPLE_RECEIVE, SAMPLE_FAILURE } from './types';
+import { LOCALE_SET, SAMPLE_REQUEST, SAMPLE_SUCCESS, SAMPLE_FAILURE } from './types';
 import { localStorageData } from '../utils/helper';
 import api from '../utils/api';
+import createDispatcher from './createDispatcher';
 
 export function localeSet(lang) {
   return {
@@ -14,33 +15,19 @@ export const setLocale = lang => dispatch => {
   dispatch(localeSet(lang));
 };
 
-export const sampleFetch = data => ({
-  type: SAMPLE_FETCH,
-  data,
-});
-
-export const sampleReceive = data => ({
-  type: SAMPLE_RECEIVE,
-  data,
-});
-
-export const sampleFailure = data => ({
-  type: SAMPLE_FAILURE,
-  data,
-});
-
 export function sampleAction(data) {
   return dispatch => {
-    dispatch(sampleFetch(data));
+    dispatch(createDispatcher(SAMPLE_REQUEST, data));
 
     return api
       .sampleRequest(data)
       .then(res => {
-        dispatch(sampleReceive(res.data));
+        dispatch(createDispatcher(SAMPLE_SUCCESS, res.data));
+
         return res;
       })
       .catch(err => {
-        dispatch(sampleFailure(err.response));
+        dispatch(createDispatcher(SAMPLE_FAILURE, err.response));
 
         return err;
       });

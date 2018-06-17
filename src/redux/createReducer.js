@@ -8,7 +8,6 @@ const createReducer = ({ types, mapActionToKey }) => {
   if (typeof mapActionToKey !== 'function') {
     throw new Error('Expected mapActionToKey to be a function.');
   }
-
   const [requestType, successType, failureType] = types;
 
   const updateReducer = (
@@ -68,5 +67,4 @@ const createReducer = ({ types, mapActionToKey }) => {
     }
   };
 };
-
 export default createReducer;
