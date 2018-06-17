@@ -41,4 +41,9 @@ const mapStateToProps = state => ({
   lang: state.locale.lang,
 });
 const mapDispatchToProps = {};
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(App),
+);

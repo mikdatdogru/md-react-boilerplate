@@ -46,4 +46,7 @@ const mapStateToProps = state => ({
   lang: state.locale.lang,
 });
 const mapDispatchToProps = {};
-export default connect(mapStateToProps, mapDispatchToProps)(TopNavigation);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(TopNavigation);

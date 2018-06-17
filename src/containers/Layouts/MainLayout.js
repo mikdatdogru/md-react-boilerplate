@@ -10,7 +10,9 @@ import HomePage from '../../pages/Home';
 import { detectLang } from '../../utils/helper';
 
 class MainLayout extends Component {
-  componentWillMount() {
+  constructor(props) {
+    super(props);
+
     const lang = detectLang();
 
     store.dispatch(setLocale(lang));

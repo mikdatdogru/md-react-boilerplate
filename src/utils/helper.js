@@ -22,18 +22,20 @@ export const localStorageData = {
       if (!_.isEmpty(localStorageData.prefix) && !_.isEmpty(name)) {
         localStorage.setItem(`${localStorageData.prefix}-${name}`, JSON.stringify(allData));
 
-        const { data, expiration, creation } = JSON.parse(
-          localStorage.getItem(`${localStorageData.prefix}-${name}`),
-        );
+        const parsed = JSON.parse(localStorage.getItem(`${localStorageData.prefix}-${name}`));
 
-        resolve({ status: 'success', name, data: { data, expiration, creation } });
+        resolve({
+          status: 'success',
+          name,
+          data: { data: parsed.data, expiration: parsed.expiration, creation: parsed.creation },
+        });
       } else {
         reject(new Error(`${name} has not created!`));
       }
     });
   },
   delete: item =>
-    new Promise((resolve, reject) => {
+    new Promise(resolve => {
       if (localStorage.getItem(`${localStorageData.prefix}-${item}`)) {
         localStorage.removeItem(`${localStorageData.prefix}-${item}`);
         resolve(`${item} has been deleted!`);

@@ -1,5 +1,4 @@
-import { LOCALE_SET, SAMPLE_FETCH, SAMPLE_RECEIVE,
-  SAMPLE_FAILURE } from './types';
+import { LOCALE_SET, SAMPLE_FETCH, SAMPLE_RECEIVE, SAMPLE_FAILURE } from './types';
 import { localStorageData } from '../utils/helper';
 import api from '../utils/api';
 

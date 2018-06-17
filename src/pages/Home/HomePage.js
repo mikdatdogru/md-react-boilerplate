@@ -9,27 +9,39 @@ import { sampleAction } from '../../actions/common';
 class HomePage extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
-  }
+    this.state = {
+      sampleData: {},
+    };
 
-  componentWillMount() {
-    this.props.sampleAction();
-
+    this.props.sampleAction('mikdatdogru');
     /*
-    swal({
-      title: 'Alert',
-      animation: false,
-      customClass: 'animated fadeIn',
-    });
-    */
+     swal({
+     title: 'Alert',
+     animation: false,
+     customClass: 'animated fadeIn',
+     });
+     */
 
     // toast.info('Wow so easy!');
+  }
+
+  static getDerivedStateFromProps(nextProps) {
+    const result = {};
+    if (nextProps.sampleData.isLoaded) {
+      result.sampleData = nextProps.sampleData;
+    }
+
+    return { ...result };
   }
 
   render() {
     return (
       <div>
         <FormattedMessage id="general.helloworld" defaultMessage="Anasayfa" />
+
+        <div>
+          <pre>{JSON.stringify(this.state.sampleData, null, 2)}</pre>
+        </div>
       </div>
     );
   }
@@ -41,9 +53,12 @@ HomePage.propTypes = {
 HomePage.defaultProps = {};
 
 const mapStateToProps = state => ({
-  sampleData:state.sampleData,
+  sampleData: state.sampleData,
 });
 const mapDispatchToProps = {
   sampleAction,
 };
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(HomePage);

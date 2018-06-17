@@ -29,6 +29,7 @@
     "no-underscore-dangle": [1, { "allow": ["_id","__REDUX_DEVTOOLS_EXTENSION__"] }],
     "no-console": 0,
     "jsx-a11y/anchor-is-valid": "false",
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    "no-case-declarations":"off"
   }
 }
