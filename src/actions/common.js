@@ -3,16 +3,12 @@ import { localStorageData } from '../utils/helper';
 import api from '../utils/api';
 import createDispatcher from '../utils/createDispatcher';
 
-export function localeSet(lang) {
-  return {
-    type: LOCALE_SET,
-    lang,
-  };
-}
-
 export const setLocale = lang => dispatch => {
   localStorageData.set('language', lang);
-  dispatch(localeSet(lang));
+  dispatch({
+    type: LOCALE_SET,
+    lang,
+  });
 };
 
 export function sampleAction(data) {

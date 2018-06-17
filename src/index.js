@@ -17,7 +17,7 @@ import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 
 export const history = createBrowserHistory();
-export const store = configureStore(history);
+export const store = configureStore(undefined, history);
 
 /* istanbul ignore if */
 if (process.env.NODE_ENV === 'development' && module.hot) {

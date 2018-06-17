@@ -7,7 +7,7 @@ import { devToolsEnhancer } from 'redux-devtools-extension';
 
 import rootReducer from '../redux/modules';
 
-const configureStore = history => {
+const configureStore = (preloadedState, history) => {
   const middlewares = [thunk, routerMiddleware(history)];
   const composed = [applyMiddleware(...middlewares)];
 
@@ -23,7 +23,7 @@ const configureStore = history => {
     }
   }
 
-  const store = createStore(rootReducer, undefined, compose(...composed));
+  const store = createStore(rootReducer, preloadedState, compose(...composed));
 
   if (process.env.NODE_ENV === 'development' && module.hot) {
     module.hot.accept('../redux/modules', () => {
