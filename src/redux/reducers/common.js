@@ -1,5 +1,5 @@
 import { SAMPLE_REQUEST, SAMPLE_SUCCESS, SAMPLE_FAILURE } from '../../actions/types';
-import createReducer from '../createReducer';
+import createReducer from '../../utils/createReducer';
 
 export const x = () => {};
 

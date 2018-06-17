@@ -5,7 +5,7 @@ import { routerMiddleware } from 'react-router-redux';
 
 import { devToolsEnhancer } from 'redux-devtools-extension';
 
-import rootReducer from './modules';
+import rootReducer from '../redux/modules';
 
 const configureStore = history => {
   const middlewares = [thunk, routerMiddleware(history)];
@@ -26,9 +26,9 @@ const configureStore = history => {
   const store = createStore(rootReducer, undefined, compose(...composed));
 
   if (process.env.NODE_ENV === 'development' && module.hot) {
-    module.hot.accept('./modules', () => {
+    module.hot.accept('../redux/modules', () => {
       // eslint-disable-next-line
-      const nextRootReducer = require('./modules').default;
+      const nextRootReducer = require('../redux/modules').default;
       store.replaceReducer(nextRootReducer);
     });
   }

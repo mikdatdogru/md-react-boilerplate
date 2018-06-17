@@ -10,7 +10,7 @@ import 'flag-icon-css/css/flag-icon.min.css';
 import 'animate.css/animate.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-import configureStore from './redux/configureStore';
+import configureStore from './utils/configureStore';
 import theme from './theme';
 import App from './containers/App';
 

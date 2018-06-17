@@ -1,7 +1,7 @@
 import { LOCALE_SET, SAMPLE_REQUEST, SAMPLE_SUCCESS, SAMPLE_FAILURE } from './types';
 import { localStorageData } from '../utils/helper';
 import api from '../utils/api';
-import createDispatcher from './createDispatcher';
+import createDispatcher from '../utils/createDispatcher';
 
 export function localeSet(lang) {
   return {
