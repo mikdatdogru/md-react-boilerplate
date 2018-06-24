@@ -13,10 +13,12 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import configureStore from './utils/configureStore';
 import theme from './theme';
 import App from './containers/App';
-
 import registerServiceWorker from './registerServiceWorker';
 
-export const history = createBrowserHistory();
+const { basePath } = window.env;
+export const history = createBrowserHistory({
+  basename: basePath,
+});
 export const store = configureStore(undefined, history);
 
 /* istanbul ignore if */

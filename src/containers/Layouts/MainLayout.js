@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 import TopNavigation from '../Layouts/TopNavigation';
 
@@ -23,8 +23,7 @@ class MainLayout extends Component {
       <Container>
         <TopNavigation />
         <Switch>
-          <Route path="/homepage" name="Home Page" component={HomePage} />
-          <Redirect from="/" to="/homepage" />
+          <Route exact path="/" name="Home Page" component={HomePage} />
         </Switch>
       </Container>
     );
