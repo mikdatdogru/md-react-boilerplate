@@ -19,6 +19,7 @@ const createReducer = ({ types, mapActionToKey }) => {
     action,
   ) => {
     switch (action.type) {
+
       case requestType:
         return {
           ...state,

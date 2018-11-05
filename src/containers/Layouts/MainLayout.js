@@ -4,7 +4,7 @@ import { Container } from 'reactstrap';
 import TopNavigation from './TopNavigation';
 
 import { store } from '../../index';
-import { setLocale } from '../../actions/locale.actions';
+import { setLocale } from '../../redux/modules/locale';
 
 import HomePage from '../../pages/Home';
 import { detectLang } from '../../utils/helper';
@@ -24,6 +24,7 @@ class MainLayout extends Component {
         <TopNavigation />
         <Switch>
           <Route exact path="/" name="Home Page" component={HomePage} />
+
         </Switch>
       </Container>
     );

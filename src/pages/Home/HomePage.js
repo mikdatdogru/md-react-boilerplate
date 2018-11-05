@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import { sampleAction } from '../../actions/common.actions';
+import { sampleAction } from '../../redux/modules/sample';
 
 class HomePage extends Component {
   constructor(props) {
@@ -40,6 +40,7 @@ class HomePage extends Component {
       <div>
         <FormattedMessage id="general.helloworld" defaultMessage="Anasayfa" />
         <div>
+
           <pre>{JSON.stringify(this.state.sampleData, null, 2)}</pre>
         </div>
       </div>

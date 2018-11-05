@@ -10,7 +10,7 @@ import {
 } from 'reactstrap';
 import { Flag } from '../../components/common';
 import { store } from '../../index';
-import { setLocale } from '../../actions/locale.actions';
+import { setLocale } from '../../redux/modules/locale';
 
 class TopNavigation extends Component {
   constructor(props) {

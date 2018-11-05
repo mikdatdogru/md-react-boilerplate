@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'react-router-redux';
+import { ConnectedRouter } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import { ThemeProvider } from 'styled-components';
 
@@ -20,32 +20,29 @@ import registerServiceWorker from './registerServiceWorker';
 
 const { basePath } = window.env;
 export const history = createBrowserHistory({
-  basename: basePath,
+    basename: basePath,
 });
 export const store = configureStore(undefined, history);
 
-/* istanbul ignore if */
-if (process.env.NODE_ENV === 'development' && module.hot) {
-  module.hot.accept('./containers/App', () => {
-    // eslint-disable-next-line
-    const NextApp = require('./containers/App').default;
-    // eslint-disable-next-line
-    render(NextApp);
-  });
-}
-
 const render = Component => {
-  ReactDOM.render(
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <ConnectedRouter history={history}>
-          <Component />
-        </ConnectedRouter>
-      </ThemeProvider>
-    </Provider>,
-    document.getElementById('root'),
-  );
+    ReactDOM.render(
+        <Provider store={store}>
+            <ThemeProvider theme={theme}>
+                <ConnectedRouter history={history}>
+                    <Component />
+                </ConnectedRouter>
+            </ThemeProvider>
+        </Provider>,
+        document.getElementById('root'),
+    );
 };
+
+if (process.env.NODE_ENV === 'development' && module.hot) {
+    // Reload components
+    module.hot.accept('./containers/App', () => {
+        render(App);
+    });
+}
 
 render(App);
 

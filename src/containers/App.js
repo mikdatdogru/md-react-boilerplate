@@ -26,6 +26,10 @@ const App = ({ lang }) => (
         draggable
         pauseOnHover
       />
+
+
+
+
       <Switch>
         <Route path="/" component={MainLayout} />
       </Switch>
