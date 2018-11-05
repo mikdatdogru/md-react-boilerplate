@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // import swal from 'sweetalert2';
 // import { toast } from 'react-toastify';
+
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { sampleAction } from '../../actions/common';
@@ -15,12 +16,12 @@ class HomePage extends Component {
 
     this.props.sampleAction('mikdatdogru');
     /*
-     swal({
-     title: 'Alert',
-     animation: false,
-     customClass: 'animated fadeIn',
-     });
-     */
+         swal({
+         title: 'Alert',
+         animation: false,
+         customClass: 'animated fadeIn',
+         });
+         */
 
     // toast.info('Wow so easy!');
   }
@@ -38,7 +39,6 @@ class HomePage extends Component {
     return (
       <div>
         <FormattedMessage id="general.helloworld" defaultMessage="Anasayfa" />
-
         <div>
           <pre>{JSON.stringify(this.state.sampleData, null, 2)}</pre>
         </div>

@@ -1,18 +1,38 @@
 import axios from 'axios';
+import errorHandler from './errorHandler';
 
 const { apiUrl } = window.env;
 
+const axiosInstance = axios.create({
+  baseURL: apiUrl,
+});
+export const client = axiosInstance;
+
+client.interceptors.response.use(
+  response =>
+    // request success ise once buraya gelir
+
+    response,
+  error => {
+    // request error ise once buraya gelir
+
+    errorHandler(error);
+
+    return Promise.reject(error);
+  },
+);
+
 export default {
   sampleRequest: data =>
-    axios({
+    client({
       method: 'get',
-      url: `${apiUrl}/users/${data}`,
+      url: `/users/${data}`,
     }).then(res => res),
 
   auth: data =>
-    axios({
+    client({
       method: 'post',
-      url: `${apiUrl}/login`,
+      url: `/login`,
       data,
     }).then(res => res),
 };

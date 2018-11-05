@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Navbar } from 'reactstrap';
-import { Dropdown } from 'semantic-ui-react';
+import {
+  Navbar,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from 'reactstrap';
 import { Flag } from '../../components/common';
 import { store } from '../../index';
 import { setLocale } from '../../actions/common';
@@ -22,16 +27,19 @@ class TopNavigation extends Component {
     return (
       <Navbar dark expand="sm" color="faded">
         <div className="ml-auto">
-          <Dropdown pointing trigger={<Flag name={lang} />}>
-            <Dropdown.Menu>
-              <Dropdown.Item selected={lang === 'tr'} onClick={() => this.languageChanger('tr')}>
-                <Flag name="tr" />
-              </Dropdown.Item>
-              <Dropdown.Item selected={lang === 'en'} onClick={() => this.languageChanger('en')}>
-                <Flag name="us" />
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+          <UncontrolledDropdown setActiveFromChild>
+            <DropdownToggle tag="a" className="nav-link" caret>
+              <Flag name={lang} />
+            </DropdownToggle>
+            <DropdownMenu style={{ width: '10px' }}>
+              <DropdownItem active={lang === 'tr'} onClick={() => this.languageChanger('tr')}>
+                <Flag name="tr" /> Türkçe
+              </DropdownItem>
+              <DropdownItem active={lang === 'en'} onClick={() => this.languageChanger('en')}>
+                <Flag name="us" /> English
+              </DropdownItem>
+            </DropdownMenu>
+          </UncontrolledDropdown>
         </div>
       </Navbar>
     );

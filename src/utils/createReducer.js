@@ -1,5 +1,5 @@
 const createReducer = ({ types, mapActionToKey }) => {
-  if (!Array.isArray(types) || types.length !== 3) {
+  if (!Array.isArray(types) || types.length < 3) {
     throw new Error('Expected types to be an array of three elements.');
   }
   if (!types.every(t => typeof t === 'string')) {
@@ -8,7 +8,7 @@ const createReducer = ({ types, mapActionToKey }) => {
   if (typeof mapActionToKey !== 'function') {
     throw new Error('Expected mapActionToKey to be a function.');
   }
-  const [requestType, successType, failureType] = types;
+  const [requestType, successType, failureType, clearType] = types;
 
   const updateReducer = (
     state = {
@@ -43,6 +43,13 @@ const createReducer = ({ types, mapActionToKey }) => {
           isLoaded: false,
           data: action.data,
         };
+      case clearType:
+        return {
+          isFetching: false,
+          isLoaded: false,
+          isFailure: false,
+          data: [],
+        };
       default:
         return state;
     }
@@ -54,6 +61,7 @@ const createReducer = ({ types, mapActionToKey }) => {
       case requestType:
       case successType:
       case failureType:
+      case clearType: {
         const key = mapActionToKey(action);
         if (typeof key !== 'string') {
           throw new Error('Expected key to be a string.');
@@ -62,6 +70,7 @@ const createReducer = ({ types, mapActionToKey }) => {
           ...state,
           ...updateReducer(state[key], action),
         };
+      }
       default:
         return state;
     }

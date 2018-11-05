@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Container } from 'semantic-ui-react';
-import TopNavigation from '../Layouts/TopNavigation';
+import { Container } from 'reactstrap';
+import TopNavigation from './TopNavigation';
 
 import { store } from '../../index';
 import { setLocale } from '../../actions/common';

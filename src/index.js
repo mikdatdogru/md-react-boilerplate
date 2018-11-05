@@ -4,8 +4,11 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import { createBrowserHistory } from 'history';
 import { ThemeProvider } from 'styled-components';
+
+import 'react-app-polyfill/ie9'; // For IE 9-11 support
+import 'react-app-polyfill/ie11'; // For IE 11 support
+
 import 'bootstrap/dist/css/bootstrap.css';
-import 'semantic-ui-css/semantic.min.css';
 import 'flag-icon-css/css/flag-icon.min.css';
 import 'animate.css/animate.css';
 import 'react-toastify/dist/ReactToastify.min.css';
