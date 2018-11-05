@@ -4,7 +4,7 @@ import { Container } from 'reactstrap';
 import TopNavigation from './TopNavigation';
 
 import { store } from '../../index';
-import { setLocale } from '../../actions/common';
+import { setLocale } from '../../actions/locale.actions';
 
 import HomePage from '../../pages/Home';
 import { detectLang } from '../../utils/helper';

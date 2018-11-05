@@ -1,16 +1,8 @@
-import { LOCALE_SET, SAMPLE_REQUEST, SAMPLE_SUCCESS, SAMPLE_FAILURE } from './types';
-import { localStorageData } from '../utils/helper';
-import api from '../utils/api';
+import { SAMPLE_REQUEST, SAMPLE_SUCCESS, SAMPLE_FAILURE } from './types';
+import api from '../api';
 import createDispatcher from '../utils/createDispatcher';
 
-export const setLocale = lang => dispatch => {
-  localStorageData.set('language', lang);
-  dispatch({
-    type: LOCALE_SET,
-    lang,
-  });
-};
-
+export const x = () => {};
 export function sampleAction(data) {
   return dispatch => {
     dispatch(createDispatcher(SAMPLE_REQUEST, data));

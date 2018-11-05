@@ -1,5 +1,5 @@
 import axios from 'axios';
-import errorHandler from './errorHandler';
+import errorHandler from './utils/errorHandler';
 
 const { apiUrl } = window.env;
 

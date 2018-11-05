@@ -10,7 +10,7 @@ import {
 } from 'reactstrap';
 import { Flag } from '../../components/common';
 import { store } from '../../index';
-import { setLocale } from '../../actions/common';
+import { setLocale } from '../../actions/locale.actions';
 
 class TopNavigation extends Component {
   constructor(props) {
@@ -18,9 +18,9 @@ class TopNavigation extends Component {
     this.state = {};
   }
 
-  languageChanger(lang) {
+  languageChanger = lang => {
     store.dispatch(setLocale(lang));
-  }
+  };
 
   render() {
     const { lang } = this.props;

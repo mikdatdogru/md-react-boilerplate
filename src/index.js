@@ -14,7 +14,7 @@ import 'animate.css/animate.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 import configureStore from './utils/configureStore';
-import theme from './theme';
+import theme from './utils/theme';
 import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 
