@@ -16,7 +16,13 @@
     "set:config:prod": "CONFIG=production node configSetter.js",
     "eject": "react-scripts eject",
     "clean": "rimraf ./build",
-    "test": "rreact-scripts test"
+    "test": "react-scripts test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run prettier && yarn run lint:fix",
+      "pre-push": "yarn run test"
+    }
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.9.0",
@@ -62,6 +68,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.13.0",
+    "husky": "^2.4.1",
     "prettier": "^1.18.2",
     "rimraf": "^2.6.3",
     "stylelint": "^10.1.0",

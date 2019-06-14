@@ -1,4 +1,5 @@
 const packageJson = require('./package');
+// eslint-disable-next-line
 const fs = require('fs');
 // console.log(`${process.env.CONFIG}`);
 // eslint-disable-next-line
