@@ -22,6 +22,7 @@
     "jsx-a11y/label-has-for": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "no-underscore-dangle": [1, { "allow": ["_id", "__REDUX_DEVTOOLS_EXTENSION__"] }],
-    "no-console": 0
+    "no-console": 0,
+    "react/destructuring-assignment": "off"
   }
 }
