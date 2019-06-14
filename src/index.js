@@ -23,35 +23,37 @@ import './assets/scss/style.scss';
 import configureStore from './utils/configureStore';
 import theme from './utils/theme';
 import App from './containers/App';
-import registerServiceWorker, { unregister } from './registerServiceWorker';
+import * as serviceWorker from './serviceWorker';
 
 const { basePath } = window.env;
 export const history = createBrowserHistory({
-    basename: basePath,
+  basename: basePath,
 });
 export const store = configureStore(undefined, history);
 
 const render = Component => {
-    ReactDOM.render(
-        <Provider store={store}>
-            <ThemeProvider theme={theme}>
-                <ConnectedRouter history={history}>
-                    <Component />
-                </ConnectedRouter>
-            </ThemeProvider>
-        </Provider>,
-        document.getElementById('root'),
-    );
+  ReactDOM.render(
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <ConnectedRouter history={history}>
+          <Component />
+        </ConnectedRouter>
+      </ThemeProvider>
+    </Provider>,
+    document.getElementById('root'),
+  );
 };
 
 if (process.env.NODE_ENV === 'development' && module.hot) {
-    // Reload components
-    module.hot.accept('./containers/App', () => {
-        render(App);
-    });
+  // Reload components
+  module.hot.accept('./containers/App', () => {
+    render(App);
+  });
 }
 
 render(App);
 
-// registerServiceWorker();
-unregister();
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
