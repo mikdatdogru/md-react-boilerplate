@@ -8,6 +8,4 @@ configSetter.version = packageJson.version;
 console.log(configSetter);
 const fileData = `window.env = ${JSON.stringify(configSetter, null, 2)};`;
 // console.log(fileData);
-fs.writeFile('./public/config.js', fileData,()=>{
-  console.log("done!");
-});
+fs.writeFile('./public/config.js', fileData, () => {});
