@@ -23,7 +23,7 @@ import './assets/scss/style.scss';
 import configureStore from './utils/configureStore';
 import theme from './utils/theme';
 import App from './containers/App';
-import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker, { unregister } from './registerServiceWorker';
 
 const { basePath } = window.env;
 export const history = createBrowserHistory({
@@ -53,4 +53,5 @@ if (process.env.NODE_ENV === 'development' && module.hot) {
 
 render(App);
 
-registerServiceWorker();
+// registerServiceWorker();
+unregister();

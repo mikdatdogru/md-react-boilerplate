@@ -4,7 +4,7 @@ const createDispatcher = (actionType, actionData) => {
   }
   return {
     type: actionType,
-    data: actionData,
+    payload: actionData,
   };
 };
 export default createDispatcher;

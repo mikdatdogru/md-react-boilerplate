@@ -3,6 +3,17 @@ import api from '../../api';
 import createDispatcher from '../../utils/createDispatcher';
 import createReducer from '../../utils/createReducer';
 
+
+
+
+
+// Reducer
+export default createReducer({
+  mapActionToKey: action => action.type,
+  types: [SAMPLE_REQUEST, SAMPLE_SUCCESS, SAMPLE_FAILURE],
+});
+
+// Without using createReducer example:
 /*
 export function sampleRequest(data) {
   return {
@@ -12,6 +23,10 @@ export function sampleRequest(data) {
 }
 */
 
+
+
+
+// Action Creators
 export function sampleAction(data) {
   return dispatch => {
     // dispatch(sampleRequest(data));
@@ -31,12 +46,8 @@ export function sampleAction(data) {
   };
 }
 
-export default createReducer({
-  mapActionToKey: action => action.type,
-  types: [SAMPLE_REQUEST, SAMPLE_SUCCESS, SAMPLE_FAILURE],
-});
 
-// Without using createReducer example:
+// Without using sampleAction example:
 /*
 export default function reducer(
   state = {
@@ -53,7 +64,7 @@ export default function reducer(
         isFetching: true,
         isFailure: false,
         isLoaded: false,
-        data: action.data,
+        payload: action.payload,
       };
 
     case SAMPLE_SUCCESS:
@@ -62,7 +73,7 @@ export default function reducer(
         isFetching: false,
         isFailure: false,
         isLoaded: true,
-        data: action.data,
+        payload: action.payload,
       };
 
     case SAMPLE_FAILURE:
@@ -71,7 +82,7 @@ export default function reducer(
         isFetching: false,
         isFailure: true,
         isLoaded: false,
-        data: action.data,
+        payload: action.payload,
       };
 
     default:

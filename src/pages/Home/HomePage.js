@@ -28,8 +28,8 @@ class HomePage extends Component {
 
   static getDerivedStateFromProps(nextProps) {
     const result = {};
-    if (nextProps.sampleData.isLoaded) {
-      result.sampleData = nextProps.sampleData;
+    if (nextProps.sample.isLoaded) {
+      result.sample = nextProps.sample;
     }
 
     return { ...result };
@@ -40,8 +40,7 @@ class HomePage extends Component {
       <div>
         <FormattedMessage id="general.helloworld" defaultMessage="Anasayfa" />
         <div>
-
-          <pre>{JSON.stringify(this.state.sampleData, null, 2)}</pre>
+          <pre>{JSON.stringify(this.state.sample, null, 2)}</pre>
         </div>
       </div>
     );
@@ -54,7 +53,7 @@ HomePage.propTypes = {
 HomePage.defaultProps = {};
 
 const mapStateToProps = state => ({
-  sampleData: state.sampleData,
+  sample: state.sample,
 });
 const mapDispatchToProps = {
   sampleAction,

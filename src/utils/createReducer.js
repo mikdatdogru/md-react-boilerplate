@@ -1,4 +1,4 @@
-const createReducer = ({ types, mapActionToKey }) => {
+const createReducer = function reducer({ types, mapActionToKey }) {
   if (!Array.isArray(types) || types.length < 3) {
     throw new Error('Expected types to be an array of three elements.');
   }
@@ -19,14 +19,13 @@ const createReducer = ({ types, mapActionToKey }) => {
     action,
   ) => {
     switch (action.type) {
-
       case requestType:
         return {
           ...state,
           isFetching: true,
           isFailure: false,
           isLoaded: false,
-          data: action.data,
+          payload: action.payload,
         };
       case successType:
         return {
@@ -34,7 +33,7 @@ const createReducer = ({ types, mapActionToKey }) => {
           isFetching: false,
           isFailure: false,
           isLoaded: true,
-          data: action.data,
+          payload: action.payload,
         };
       case failureType:
         return {
@@ -42,14 +41,14 @@ const createReducer = ({ types, mapActionToKey }) => {
           isFetching: false,
           isFailure: true,
           isLoaded: false,
-          data: action.data,
+          payload: action.payload,
         };
       case clearType:
         return {
           isFetching: false,
           isLoaded: false,
           isFailure: false,
-          data: [],
+          payload: [],
         };
       default:
         return state;

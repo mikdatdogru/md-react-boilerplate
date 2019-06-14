@@ -1,5 +1,5 @@
-export const LOCALE_SET = 'LOCALE_SET';
+export const LOCALE_SET = '@md/LOCALE_SET';
 
-export const SAMPLE_REQUEST = '@md/sample/REQUEST';
-export const SAMPLE_SUCCESS = '@md/sample/SUCCESS';
-export const SAMPLE_FAILURE = '@md/sample/FAILURE';
+export const SAMPLE_REQUEST = '@md/SAMPLE_REQUEST';
+export const SAMPLE_SUCCESS = '@md/SAMPLE_SUCCESS';
+export const SAMPLE_FAILURE = '@md/SAMPLE_FAILURE';
