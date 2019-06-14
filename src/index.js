@@ -11,9 +11,6 @@ import { ConnectedRouter } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import { ThemeProvider } from 'styled-components';
 
-import 'react-app-polyfill/ie9'; // For IE 9-11 support
-import 'react-app-polyfill/ie11'; // For IE 11 support
-
 import 'flag-icon-css/css/flag-icon.min.css';
 import 'animate.css/animate.css';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -31,7 +28,7 @@ export const history = createBrowserHistory({
 });
 export const store = configureStore(undefined, history);
 
-const render = Component => {
+const render = (Component) => {
   ReactDOM.render(
     <Provider store={store}>
       <ThemeProvider theme={theme}>

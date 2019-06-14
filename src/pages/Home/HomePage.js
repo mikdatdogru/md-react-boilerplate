@@ -11,7 +11,7 @@ class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sampleData: {},
+      sample: {},
     };
 
     this.props.sampleAction('mikdatdogru');

@@ -3,10 +3,6 @@ import api from '../../api';
 import createDispatcher from '../../utils/createDispatcher';
 import createReducer from '../../utils/createReducer';
 
-
-
-
-
 // Reducer
 export default createReducer({
   mapActionToKey: action => action.type,
@@ -23,29 +19,25 @@ export function sampleRequest(data) {
 }
 */
 
-
-
-
 // Action Creators
 export function sampleAction(data) {
-  return dispatch => {
+  return (dispatch) => {
     // dispatch(sampleRequest(data));
     dispatch(createDispatcher(SAMPLE_REQUEST, data));
 
     return api
       .sampleRequest(data)
-      .then(res => {
+      .then((res) => {
         dispatch(createDispatcher(SAMPLE_SUCCESS, res.data));
         return res;
       })
-      .catch(err => {
+      .catch((err) => {
         dispatch(createDispatcher(SAMPLE_FAILURE, err.response));
 
         return err;
       });
   };
 }
-
 
 // Without using sampleAction example:
 /*

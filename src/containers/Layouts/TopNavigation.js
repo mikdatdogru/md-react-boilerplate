@@ -9,7 +9,6 @@ import {
   DropdownItem,
 } from 'reactstrap';
 import { Flag } from '../../components/common';
-import { store } from '../../index';
 import { setLocale } from '../../redux/modules/locale';
 
 class TopNavigation extends Component {
@@ -18,8 +17,8 @@ class TopNavigation extends Component {
     this.state = {};
   }
 
-  languageChanger = lang => {
-    store.dispatch(setLocale(lang));
+  languageChanger = (lang) => {
+    this.props.setLocale(lang);
   };
 
   render() {
@@ -33,10 +32,14 @@ class TopNavigation extends Component {
             </DropdownToggle>
             <DropdownMenu style={{ width: '10px' }}>
               <DropdownItem active={lang === 'tr'} onClick={() => this.languageChanger('tr')}>
-                <Flag name="tr" /> Türkçe
+                <Flag name="tr" />
+                {' '}
+Türkçe
               </DropdownItem>
               <DropdownItem active={lang === 'en'} onClick={() => this.languageChanger('en')}>
-                <Flag name="us" /> English
+                <Flag name="us" />
+                {' '}
+English
               </DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
@@ -48,12 +51,15 @@ class TopNavigation extends Component {
 
 TopNavigation.propTypes = {
   lang: PropTypes.string.isRequired,
+  setLocale: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   lang: state.locale.lang,
 });
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  setLocale,
+};
 export default connect(
   mapStateToProps,
   mapDispatchToProps,

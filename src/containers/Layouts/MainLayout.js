@@ -1,34 +1,34 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Container } from 'reactstrap';
-import TopNavigation from './TopNavigation';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import { store } from '../../index';
+import TopNavigation from './TopNavigation';
 import { setLocale } from '../../redux/modules/locale';
 
 import HomePage from '../../pages/Home';
 import { detectLang } from '../../utils/helper';
 
-class MainLayout extends Component {
-  constructor(props) {
-    super(props);
-
+const MainLayout = ({ dispatch }) => {
+  useEffect(() => {
     const lang = detectLang();
+    dispatch(setLocale(lang));
+  });
 
-    store.dispatch(setLocale(lang));
-  }
+  return (
+    <Container>
+      <TopNavigation />
+      <Switch>
+        <Route exact path="/" name="Home Page" component={HomePage} />
+      </Switch>
+    </Container>
+  );
+};
 
-  render() {
-    return (
-      <Container>
-        <TopNavigation />
-        <Switch>
-          <Route exact path="/" name="Home Page" component={HomePage} />
+MainLayout.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+};
+MainLayout.defaultProps = {};
 
-        </Switch>
-      </Container>
-    );
-  }
-}
-
-export default MainLayout;
+export default connect()(MainLayout);

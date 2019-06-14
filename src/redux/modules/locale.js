@@ -1,7 +1,7 @@
 import { LOCALE_SET } from '../types';
 import { localStorageData } from '../../utils/helper';
 
-export const setLocale = lang => dispatch => {
+export const setLocale = lang => (dispatch) => {
   localStorageData.set('language', lang);
   dispatch({
     type: LOCALE_SET,
@@ -9,11 +9,9 @@ export const setLocale = lang => dispatch => {
   });
 };
 
-
 export default function locale(state = { lang: 'tr' }, action = {}) {
   if (action.type === LOCALE_SET) {
     return action;
-  } else {
-    return state;
   }
+  return state;
 }
