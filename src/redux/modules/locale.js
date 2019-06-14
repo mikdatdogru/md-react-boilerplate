@@ -1,7 +1,7 @@
 import { LOCALE_SET } from '../types';
 import { localStorageData } from '../../utils/helper';
 
-export const setLocale = lang => (dispatch) => {
+export const setLocale = lang => dispatch => {
   localStorageData.set('language', lang);
   dispatch({
     type: LOCALE_SET,

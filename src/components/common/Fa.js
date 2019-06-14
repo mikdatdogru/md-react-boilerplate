@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Fa = ({
-  type, icon, size, isSpin, className,
-}) => (
+const Fa = ({ type, icon, size, isSpin, className }) => (
   <i className={`${type} fa-${icon} fa-${size} ${isSpin ? 'fa-spin' : ''} ${className}`} />
 );
 

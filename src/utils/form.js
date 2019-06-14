@@ -7,7 +7,7 @@ export const control = (parent, fieldName, setter, getter) => {
   const myGetter = getter || unitFunction;
   return {
     value: myGetter(parent.state[fieldName]),
-    onChange: (newValue) => {
+    onChange: newValue => {
       parent.setState({
         errors: {
           ...parent.state.errors,

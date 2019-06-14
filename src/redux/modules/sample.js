@@ -21,17 +21,17 @@ export function sampleRequest(data) {
 
 // Action Creators
 export function sampleAction(data) {
-  return (dispatch) => {
+  return dispatch => {
     // dispatch(sampleRequest(data));
     dispatch(createDispatcher(SAMPLE_REQUEST, data));
 
     return api
       .sampleRequest(data)
-      .then((res) => {
+      .then(res => {
         dispatch(createDispatcher(SAMPLE_SUCCESS, res.data));
         return res;
       })
-      .catch((err) => {
+      .catch(err => {
         dispatch(createDispatcher(SAMPLE_FAILURE, err.response));
 
         return err;

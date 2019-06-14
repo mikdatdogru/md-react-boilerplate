@@ -17,7 +17,7 @@ class TopNavigation extends Component {
     this.state = {};
   }
 
-  languageChanger = (lang) => {
+  languageChanger = lang => {
     this.props.setLocale(lang);
   };
 
@@ -32,14 +32,10 @@ class TopNavigation extends Component {
             </DropdownToggle>
             <DropdownMenu style={{ width: '10px' }}>
               <DropdownItem active={lang === 'tr'} onClick={() => this.languageChanger('tr')}>
-                <Flag name="tr" />
-                {' '}
-Türkçe
+                <Flag name="tr" /> Türkçe
               </DropdownItem>
               <DropdownItem active={lang === 'en'} onClick={() => this.languageChanger('en')}>
-                <Flag name="us" />
-                {' '}
-English
+                <Flag name="us" /> English
               </DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>

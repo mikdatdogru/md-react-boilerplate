@@ -10,10 +10,10 @@ export const client = axiosInstance;
 
 client.interceptors.response.use(
   response =>
-  // request success ise once buraya gelir
+    // request success ise once buraya gelir
 
     response,
-  (error) => {
+  error => {
     // request error ise once buraya gelir
 
     errorHandler(error);
@@ -23,14 +23,16 @@ client.interceptors.response.use(
 );
 
 export default {
-  sampleRequest: data => client({
-    method: 'get',
-    url: `/users/${data}`,
-  }).then(res => res),
+  sampleRequest: data =>
+    client({
+      method: 'get',
+      url: `/users/${data}`,
+    }).then(res => res),
 
-  auth: data => client({
-    method: 'post',
-    url: '/login',
-    data,
-  }).then(res => res),
+  auth: data =>
+    client({
+      method: 'post',
+      url: '/login',
+      data,
+    }).then(res => res),
 };

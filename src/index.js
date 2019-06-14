@@ -28,7 +28,7 @@ export const history = createBrowserHistory({
 });
 export const store = configureStore(undefined, history);
 
-const render = (Component) => {
+const render = Component => {
   ReactDOM.render(
     <Provider store={store}>
       <ThemeProvider theme={theme}>

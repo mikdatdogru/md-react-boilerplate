@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 // localstorage belli bir formatta data yazar ve okur
 export const localStorageData = {
   prefix: 'md',
-  get: (item) => {
+  get: item => {
     const localData = JSON.parse(localStorage.getItem(`${localStorageData.prefix}-${item}`));
 
     if (localData) return localData;
@@ -34,14 +34,15 @@ export const localStorageData = {
       }
     });
   },
-  delete: item => new Promise((resolve) => {
-    if (localStorage.getItem(`${localStorageData.prefix}-${item}`)) {
-      localStorage.removeItem(`${localStorageData.prefix}-${item}`);
-      resolve(`${item} has been deleted!`);
-    } else {
-      console.error(`${item} has not found!`);
-    }
-  }),
+  delete: item =>
+    new Promise(resolve => {
+      if (localStorage.getItem(`${localStorageData.prefix}-${item}`)) {
+        localStorage.removeItem(`${localStorageData.prefix}-${item}`);
+        resolve(`${item} has been deleted!`);
+      } else {
+        console.error(`${item} has not found!`);
+      }
+    }),
   clearExpired: () => {
     // clear expired data
     Object.keys(localStorage).reduce((total, item) => {
@@ -62,20 +63,22 @@ export const localStorageData = {
   },
 };
 
-export const prettify = text => text
-  .replace(/[i|İ]/g, 'i')
-  .replace(/[ı|I]/g, 'i')
-  .replace(/[ş|Ş]/g, 's')
-  .replace(/[ö|Ö]/g, 'o')
-  .replace(/[ü|Ü]/g, 'u')
-  .replace(/[ç|Ç]/g, 'c')
-  .replace(/[ğ|Ğ]/g, 'g')
-  .replace(/\s/gi, '-')
-  .replace(/[-]+/gi, '-')
-  .toLowerCase();
+export const prettify = text =>
+  text
+    .replace(/[i|İ]/g, 'i')
+    .replace(/[ı|I]/g, 'i')
+    .replace(/[ş|Ş]/g, 's')
+    .replace(/[ö|Ö]/g, 'o')
+    .replace(/[ü|Ü]/g, 'u')
+    .replace(/[ç|Ç]/g, 'c')
+    .replace(/[ğ|Ğ]/g, 'g')
+    .replace(/\s/gi, '-')
+    .replace(/[-]+/gi, '-')
+    .toLowerCase();
 
 export const detectLang = () => {
-  const language = (navigator.languages && navigator.languages[0]) || navigator.language || navigator.userLanguage;
+  const language =
+    (navigator.languages && navigator.languages[0]) || navigator.language || navigator.userLanguage;
   const languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
   const lang = localStorageData.get('language');
   if (lang) return lang.data;

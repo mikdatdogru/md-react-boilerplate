@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 import swal from 'sweetalert2';
 
-const errorHandler = (err) => {
+const errorHandler = err => {
   if (err.response) {
     if (err.response.data) {
       if (err.response.data.message) {
