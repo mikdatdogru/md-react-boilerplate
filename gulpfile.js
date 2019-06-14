@@ -1,35 +1,16 @@
 const gulp = require('gulp');
-const concat = require('gulp-concat');
-const sass = require('gulp-sass');
-const replace = require('gulp-replace');
+const fs = require('fs');
+const packageJson = require('./package');
 
-gulp.task('sass', () =>
-  gulp
-    .src('./scss/style.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(concat('style.css'))
-    .pipe(gulp.dest('./public/css'))
-    .pipe(sass({ outputStyle: 'compressed' }))
-    .pipe(concat('style.min.css'))
-    .pipe(gulp.dest('./public/css'))
-);
-
-gulp.task('sass:watch', () =>
-  gulp.watch('./scss/**/*.scss', gulp.series('sass'))
-);
-
-gulp.task('set:config', (done) => {
-// eslint-disable-next-line
+gulp.task('set:config', done => {
+  console.log(`${process.env.CONFIG}`);
+  // eslint-disable-next-line
   const config = require(`./config/${process.env.CONFIG}.json`);
-
-  const params = Object.keys(config);
-  const task = gulp.src(['./public/js/config.js']);
-  params.forEach(item => {
-    const reg = new RegExp(`(${item}: ?["']([^"']|""|'')*["'])`, 'g');
-    task.pipe(replace(reg, `${item}: '${config[item]}'`))
-  });
-  task.pipe(gulp.dest('public/js/'));
+  config.version = packageJson.version;
+  console.log(config);
+  const fileData = `window.env = ${JSON.stringify(config, null, 2)};`;
+  fs.writeFile('./public/js/config.js', fileData, done);
   done();
 });
 
-gulp.task('default', gulp.series('sass'));
+gulp.task('default', gulp.series('set:config'));
