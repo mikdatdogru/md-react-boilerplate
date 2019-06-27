@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Fa = ({ type, icon, size, isSpin, className }) => (
-  <i className={`${type} fa-${icon} fa-${size} ${isSpin ? 'fa-spin' : ''} ${className}`} />
+  <i
+    data-test="faComponent"
+    className={`${type} fa-${icon} fa-${size} ${isSpin ? 'fa-spin' : ''} ${className}`}
+  />
 );
 
 Fa.propTypes = {

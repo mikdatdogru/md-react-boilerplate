@@ -1,6 +1,6 @@
 // polyfills start
-import 'react-app-polyfill/ie9'; // For IE 9-11 support
-import 'react-app-polyfill/ie11'; // For IE 11 support
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
 import 'core-js';
 import 'raf/polyfill';
 // polyfills end
@@ -22,12 +22,12 @@ import theme from './utils/theme';
 import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
 
-const { basePath } = window.env;
+const { REACT_APP_BASEPATH } = process.env;
 export const history = createBrowserHistory({
-  basename: basePath,
+  basename: REACT_APP_BASEPATH,
 });
 export const store = configureStore(undefined, history);
-
+console.log(process.env);
 const render = Component => {
   ReactDOM.render(
     <Provider store={store}>

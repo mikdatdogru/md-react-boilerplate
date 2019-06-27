@@ -1,10 +1,10 @@
 import axios from 'axios';
 import errorHandler from './utils/errorHandler';
 
-const { apiUrl } = window.env;
+const { REACT_APP_API_URL } = process.env;
 
 const axiosInstance = axios.create({
-  baseURL: apiUrl,
+  baseURL: REACT_APP_API_URL,
 });
 export const client = axiosInstance;
 

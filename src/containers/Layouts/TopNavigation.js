@@ -8,10 +8,10 @@ import {
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap';
-import { Flag } from '../../components/common';
+import { LangFlag } from '../../components/common';
 import { setLocale } from '../../redux/modules/locale';
 
-class TopNavigation extends Component {
+export class TopNavigationComp extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -24,18 +24,18 @@ class TopNavigation extends Component {
   render() {
     const { lang } = this.props;
     return (
-      <Navbar dark expand="sm" color="faded">
+      <Navbar data-test="TopNavigation" dark expand="sm" color="faded">
         <div className="ml-auto">
           <UncontrolledDropdown setActiveFromChild>
             <DropdownToggle tag="a" className="nav-link" caret>
-              <Flag name={lang} />
+              <LangFlag name={lang} />
             </DropdownToggle>
             <DropdownMenu style={{ width: '10px' }}>
               <DropdownItem active={lang === 'tr'} onClick={() => this.languageChanger('tr')}>
-                <Flag name="tr" /> Türkçe
+                <LangFlag name="tr" /> Türkçe
               </DropdownItem>
               <DropdownItem active={lang === 'en'} onClick={() => this.languageChanger('en')}>
-                <Flag name="us" /> English
+                <LangFlag name="us" /> English
               </DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
@@ -45,7 +45,7 @@ class TopNavigation extends Component {
   }
 }
 
-TopNavigation.propTypes = {
+TopNavigationComp.propTypes = {
   lang: PropTypes.string.isRequired,
   setLocale: PropTypes.func.isRequired,
 };
@@ -59,4 +59,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(TopNavigation);
+)(TopNavigationComp);

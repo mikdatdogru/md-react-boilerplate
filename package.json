@@ -6,17 +6,16 @@
     "node": ">=8.5.0"
   },
   "scripts": {
-    "start": "yarn run set:config:dev && react-scripts start",
-    "build:dev": "yarn run set:config:dev && PUBLIC_URL= react-scripts build",
-    "build:prod": "yarn run set:config:prod && PUBLIC_URL= GENERATE_SOURCEMAP=false react-scripts build",
+    "start:dev": "env-cmd -f .env.development.local react-scripts start",
+    "start:prod": "env-cmd -f .env.production.local react-scripts start",
+    "build:dev": "GENERATE_SOURCEMAP=true env-cmd -f .env.development react-scripts build",
+    "build:prod": "GENERATE_SOURCEMAP=false env-cmd -f .env.production react-scripts build",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "prettier": "prettier --write \"{src/!(assets),src,__tests__}/**/*.js\"",
-    "set:config:dev": "CONFIG=development node configSetter.js",
-    "set:config:prod": "CONFIG=production node configSetter.js",
+    "prettier": "prettier --write \"{src/!(assets),src}/**/*.js\"",
     "eject": "react-scripts eject",
     "clean": "rimraf ./build",
-    "test": "CI=false react-scripts test --env=jsdom"
+    "test": "react-scripts test"
   },
   "husky": {
     "hooks": {
@@ -24,14 +23,13 @@
       "pre-push": "yarn run test"
     }
   },
-
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.9.0",
     "animate.css": "^3.7.2",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "connected-react-router": "^6.4.0",
-    "core-js": "^3.1.3",
+    "core-js": "^3.1.4",
     "flag-icon-css": "^3.3.0",
     "history": "^4.9.0",
     "jwt-decode": "^2.2.0",
@@ -51,27 +49,34 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1",
     "react-slick": "^0.24.0",
-    "react-toastify": "^5.2.1",
+    "react-toastify": "^5.3.1",
     "reactstrap": "^8.0.0",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "remote-redux-devtools": "^0.5.16",
-    "styled-components": "^4.3.1",
-    "sweetalert2": "^8.12.1",
+    "styled-components": "^4.3.2",
+    "sweetalert2": "^8.13.0",
     "sweetalert2-react-content": "^1.1.0",
     "validator": "^11.0.0"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-import": "^2.17.3",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react": "^7.14.2",
     "husky": "^2.4.1",
+    "jest-enzyme": "^7.0.2",
     "prettier": "^1.18.2",
+    "react-test-renderer": "^16.8.6",
+    "redux-mock-store": "^1.5.3",
     "rimraf": "^2.6.3",
+    "sinon": "^7.3.2",
     "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0",
     "stylelint-scss": "^3.8.0"
