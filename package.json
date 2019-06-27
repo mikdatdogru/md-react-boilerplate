@@ -15,7 +15,10 @@
     "prettier": "prettier --write \"{src/!(assets),src}/**/*.js\"",
     "eject": "react-scripts eject",
     "clean": "rimraf ./build",
-    "test": "CI=false react-scripts test"
+    "test": "CI=true react-scripts test",
+    "coverage": "yarn run test -- --coverage",
+    "postcoverage": "istanbul check-coverage --statements 15 --functions 15 --branches 15 --lines 15",
+    "runcoverage": "hs ./coverage/lcov-report/"
   },
   "husky": {
     "hooks": {
@@ -71,6 +74,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.2",
     "husky": "^2.4.1",
+    "istanbul": "^0.4.5",
     "jest-enzyme": "^7.0.2",
     "prettier": "^1.18.2",
     "react-test-renderer": "^16.8.6",

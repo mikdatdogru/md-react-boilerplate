@@ -23,7 +23,6 @@ describe('App Component', () => {
 
   beforeEach(() => {
     store = mockStore(initialState);
-    console.log(process.env);
     wrapper = setUp(store);
   });
 
