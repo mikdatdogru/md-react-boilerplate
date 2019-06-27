@@ -15,7 +15,7 @@
     "prettier": "prettier --write \"{src/!(assets),src}/**/*.js\"",
     "eject": "react-scripts eject",
     "clean": "rimraf ./build",
-    "test": "react-scripts test"
+    "test": "CI=false react-scripts test"
   },
   "husky": {
     "hooks": {
