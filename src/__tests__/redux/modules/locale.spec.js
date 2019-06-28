@@ -2,7 +2,7 @@ import locale, { setLocale } from '../../../redux/modules/locale';
 import { LOCALE_SET, SAMPLE_REQUEST } from '../../../redux/types';
 import { mockStore } from '../../../utils/testHelpers';
 
-describe('setLocale', () => {
+describe('Locale Module', () => {
   let store;
 
   const initialState = {
