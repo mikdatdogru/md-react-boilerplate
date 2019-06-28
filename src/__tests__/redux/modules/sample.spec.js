@@ -1,7 +1,6 @@
 import sample, { sampleAction } from '../../../redux/modules/sample';
-import { LOCALE_SET, SAMPLE_REQUEST, SAMPLE_SUCCESS, SAMPLE_FAILURE } from '../../../redux/types';
+import { SAMPLE_REQUEST, SAMPLE_SUCCESS, SAMPLE_FAILURE } from '../../../redux/types';
 import { mockStore } from '../../../utils/testHelpers';
-import locale from '../../../redux/modules/locale';
 
 describe('Sample Module', () => {
   let store;
