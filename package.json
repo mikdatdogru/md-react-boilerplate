@@ -83,7 +83,7 @@
     "sinon": "^7.3.2",
     "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0",
-    "stylelint-scss": "^3.9.2"
+    "stylelint-scss": "^3.10.0"
   },
   "browserslist": [
     ">0.2%",
