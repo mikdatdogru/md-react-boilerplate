@@ -26,7 +26,4 @@ export class MyComponent extends Component {
 
 const mapStateToProps = state => ({ lang: state.locale.lang });
 const mapDispatchToProps = {};
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(MyComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(MyComponent);

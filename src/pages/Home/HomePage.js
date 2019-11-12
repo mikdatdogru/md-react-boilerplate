@@ -49,6 +49,7 @@ class HomePage extends Component {
 
 HomePage.propTypes = {
   sampleAction: PropTypes.func.isRequired,
+  sample: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 HomePage.defaultProps = {};
 
@@ -58,7 +59,4 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   sampleAction,
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

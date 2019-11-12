@@ -56,7 +56,4 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   setLocale,
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(TopNavigationComp);
+export default connect(mapStateToProps, mapDispatchToProps)(TopNavigationComp);

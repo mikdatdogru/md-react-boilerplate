@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-// import { expect } from 'chai';
 import Fa from './Fa';
 import { findByTestAttr } from '../../utils/testHelpers';
 
